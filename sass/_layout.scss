@@ -136,15 +136,17 @@ nav{
 		margin: 15px 40px;
 		font-size: 2rem;
 		font-weight: bold;
+		@include breakpoint(max-width 710px){
+			margin: 15px 2px;
+		}
 		@include breakpoint(max-width 642px){
-			text-indent: -320px;
-			margin: 15px 5px;
+			text-indent: -380px;
 			&:after{
 				content: "OYEP";
-				padding-left: 10px;
+				padding-left: 80px;
 			}
 		}
-		@include breakpoint(max-width 365px){
+		@include breakpoint(max-width 380px){
 			display: none;
 		}
 	}
@@ -259,7 +261,10 @@ section{
 .owl-carousel img{
 	width: 350px;
 	height: 400px;
+	overflow: hidden;
+	padding: 10px;
 }
+.owl-item img{max-width:100%;height:auto;}
 footer{
 	@include container(100%);
 	background: $color-primary;

@@ -21,11 +21,24 @@ module.exports = function(grunt) {
         dest: 'js/built.js',
       },
     },
+    'ftp-deploy': {
+      build: {
+        auth: {
+          host: 'oyepng.org',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: '/var/www/designs/oyep/',
+        dest: '/',
+        exclusions: ['.gitignore', '.sass-cache']
+      }
+    },
   });
 
-  // Load the plugin that provides the "uglify" task.
+  // Load the plugins
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-ftp-deploy');
 
   // Default task(s).
   grunt.registerTask('default', ['concat','uglify']);
