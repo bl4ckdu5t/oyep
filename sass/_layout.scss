@@ -29,10 +29,19 @@ ol, ul{ margin: 0; padding: 0; list-style-type: none; }
 	right: 0;
 	top: 220px;
 	margin: 0 auto;
-	z-index: 100;
+	z-index: 10;
 	border: solid 10px $color-pink;
 	box-shadow: 0 1px 2px $black;
 	border-radius: 50%;
+	@include breakpoint(max-width 900px){
+		top: $header-height - 150px - 200px;
+	}
+	@include breakpoint(max-width 625px){
+		top: $header-height - 420px;
+	}
+	@include breakpoint(max-width 340px){
+		top: $header-height - 430px;
+	}
 }
 header{
 	overflow: hidden;
@@ -45,14 +54,31 @@ header{
 		top: 0;
 		width: 100%;
 		height: $header-height;
-		z-index: 10;
+		z-index: 9;
+	}
+	@include breakpoint(max-width 900px){
+		height: $header-height - 150px;
+	}
+	@include breakpoint(max-width 625px){
+		height: $header-height - 250px;
+		.overlay{
+			height: $header-height - 250px;
+		}
+	}
+	@include breakpoint(max-width 455px){
+		.rslides{
+			margin-top: $nav-height;
+		}
+	}
+	@include breakpoint(max-width 340px){
+		height: $header-height - 270px;
 	}
 }
 nav{
 	position: absolute;
 	z-index: 100;
 	width: 100%;
-	height: $nav-height;
+	min-height: $nav-height;
 	background: rgba($color-pink,.5);
 	> ul{
 		float: right;
@@ -69,8 +95,22 @@ nav{
 				}
 			}
 		}
-		@breakpoint(max-width 950px){
-
+		@include breakpoint(max-width 950px){
+			float: none;
+			position: absolute;
+			top: $nav-height;
+			right: -100px;
+			z-index: 300;
+			background: $color-primary;
+			display: none;
+			li{
+				display: block;
+				text-align: center;
+				a{
+					padding: 10px;
+					width: 200px;
+				}
+			}
 		}
 	}
 	.social{
@@ -96,9 +136,26 @@ nav{
 		margin: 15px 40px;
 		font-size: 2rem;
 		font-weight: bold;
+		@include breakpoint(max-width 642px){
+			text-indent: -320px;
+			margin: 15px 5px;
+			&:after{
+				content: "OYEP";
+				padding-left: 10px;
+			}
+		}
+		@include breakpoint(max-width 365px){
+			display: none;
+		}
 	}
-	svg{
+	>svg{
 		float: right;
+		margin: 12px 10px;
+		display: none;
+		cursor: pointer;
+		@include breakpoint(max-width 950px){
+			display: block;
+		}
 	}
 }
 
@@ -128,6 +185,9 @@ section{
 	&:before{
 		content: '#';
 	}
+	@include breakpoint(max-width 410px){
+		display: none;
+	}
 }
 // Grids with AMCSS style
 @for $i from 1 through 12 {
@@ -139,6 +199,27 @@ section{
 	width: 300px;
 	height: 300px;
 	border-radius: 50%;
+	@include breakpoint(max-width 960px){
+		width: 100%;
+		height: 100%;
+	}
+	@include breakpoint(max-width 800px){
+		width: 280px;
+		height: 280px;
+	}
+	@include breakpoint(max-width 410px){
+		width: 180px;
+		height: 180px;
+	}
+}
+@include breakpoint(max-width 800px){
+	[data-grid~="7"]{
+		width: 100%;
+	}
+	[data-grid~="5"]{
+		@extend [data-grid~="7"];
+		text-align: center;
+	}
 }
 [data-button]{
 	border: none;
@@ -193,6 +274,13 @@ footer{
 			border-right: solid thin darken($color-primary, 4);
 			border-left: solid thin darken($color-primary, 4);
 			padding: 0 5px;
+		}
+		@include breakpoint(max-width 768px){
+			width: 100% !important;
+			margin: 0 !important;
+			&:nth-of-type(2){
+				border: none;
+			}
 		}
 	}
 	h3{

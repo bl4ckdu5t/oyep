@@ -20,4 +20,7 @@ $(document).ready(function(){
 	        }
 	    }
 	});
+	$('nav>svg').click(function(){
+		$(this).siblings('ul').slideToggle();
+	});
 });

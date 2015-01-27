@@ -1544,4 +1544,7 @@ if (typeof Object.create !== "function") {
 	        }
 	    }
 	});
+	$('nav>svg').click(function(){
+		$(this).siblings('ul').slideToggle();
+	});
 });
