@@ -1,0 +1,202 @@
+* { @include box-sizing(border-box); }
+a{ text-decoration: none; color: inherit; }
+html{
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+	font-size: 62.5%;
+}
+body{
+	margin: 0;
+	font-family: $font-stack;
+	font-size: 16px;
+	font-size: 1.6rem;
+	background: #eee;
+}
+*:focus{ outline: 3px solid rgba(62, 184, 179, $reg_alpha); }
+::selection{ background: #999; color: white; }
+// Some defaults
+ol, ul{ margin: 0; padding: 0; list-style-type: none; }
+[type="submit"],button{
+	font-family: $font-stack;
+	cursor: pointer;
+}
+[class~="logo"]{
+	@include ir("../images/logo.jpg", $logo-size, $logo-size);
+	background-position: center;
+	background-size: $logo-size - 20px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 220px;
+	margin: 0 auto;
+	z-index: 100;
+	border: solid 10px $color-pink;
+	box-shadow: 0 1px 2px $black;
+	border-radius: 50%;
+}
+header{
+	overflow: hidden;
+	height: $header-height;
+	position: relative;
+	.overlay{
+		background: url(../images/dot-texture.png);
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: $header-height;
+		z-index: 10;
+	}
+}
+nav{
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	height: $nav-height;
+	background: rgba($color-pink,.5);
+	> ul{
+		float: right;
+		margin-right: 10rem;
+		li{
+			display: inline-block;
+			a{
+				display: block;
+				padding: 19px 10px;
+				width: 100%;
+				color: $white;
+				&:hover{
+					background: rgba(darken($color-pink, 9), .5);
+				}
+			}
+		}
+		@breakpoint(max-width 950px){
+
+		}
+	}
+	.social{
+		width: 200px;
+		background: $color-primary;
+		float: right;
+		height: $nav-height;
+		padding: 10px;
+		a{
+			display: inline-block;
+			margin: 10px 15px;
+			svg{
+				fill: lighten($color-pink, 9);
+				&:hover{
+					fill: darken($color-pink, 2);
+				}
+			}
+		}
+	}
+	h2{
+		float: left;
+		color: $white;
+		margin: 15px 40px;
+		font-size: 2rem;
+		font-weight: bold;
+	}
+	svg{
+		float: right;
+	}
+}
+
+section{
+	@include container(100%);
+	position: relative;
+	width: 90%;
+	min-height: 100px;
+	background: $white;
+	margin: 50px auto;
+	padding: 5rem;
+	font-size: 2rem;
+	h3{
+		text-transform: uppercase;
+		font-size: 3rem;
+		font-weight: lighter;
+	}
+}
+.pin{
+	position: absolute;
+	top: 10px;
+	right: -20px;
+	background: $color-wine;
+	color: $white;
+	padding: 20px;
+	font-style: italic;
+	&:before{
+		content: '#';
+	}
+}
+// Grids with AMCSS style
+@for $i from 1 through 12 {
+	[data-grid="#{$i}"]{
+		@include span( 100% * ( $i / 12% ) - 2% );
+	}
+}
+[class~="circle-caption"]{
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+}
+[data-button]{
+	border: none;
+	background: #ddd;
+	color: #444;
+	font-size: 2rem;
+	padding: 20px;
+}
+[data-button~="large"]{
+	padding: 15px 40px;
+}
+[data-color~="wine"]{
+	background: $color-wine;
+	color: $white;
+}
+[data-button][data-color~="wine"]{
+	background: darken($color-pink, 9);
+	&:hover{
+		background: darken($color-primary, 5);
+	}
+}
+[class~="pink-text"]{
+	color: $color-wine;
+}
+[class~="convertibles"]{
+	width: 100%;
+	text-align: center;
+	li{
+		display: inline-block;
+		margin: 0 10px;
+		>img{
+			width: 340px;
+			height: 400px;
+		}
+	}
+}
+.owl-carousel img{
+	width: 350px;
+	height: 400px;
+}
+footer{
+	@include container(100%);
+	background: $color-primary;
+	margin-top: 10px;
+	border-top: solid 3rem darken($color-primary, 8);
+	padding: 20px;
+	color: $white;
+	font-size: 1.8rem;
+	>div{
+		text-align: center;
+		&:nth-of-type(2){
+			border-right: solid thin darken($color-primary, 4);
+			border-left: solid thin darken($color-primary, 4);
+			padding: 0 5px;
+		}
+	}
+	h3{
+		font-size: 3rem;
+	}
+	a{ color: darken($color-wine, 2); }
+}
