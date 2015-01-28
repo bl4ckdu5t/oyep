@@ -12,6 +12,7 @@ body{
 	font-size: 1.6rem;
 	background: #eee;
 }
+a img{ border: none; }
 *:focus{ outline: 3px solid rgba(62, 184, 179, $reg_alpha); }
 ::selection{ background: #999; color: white; }
 // Some defaults
@@ -292,4 +293,8 @@ footer{
 		font-size: 3rem;
 	}
 	a{ color: darken($color-wine, 2); }
+}
+.page-caption{
+	width: 100%;
+	height: 300px;
 }

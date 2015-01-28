@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         separator: ';',
       },
       dist: {
-        src: ['js/vendor/jquery-2.1.1.min.js', 'js/vendor/responsiveslides.min.js', 'bower_components/owl-carousel/owl-carousel/owl.carousel.js','js/script.js'],
+        src: ['js/vendor/jquery-2.1.1.min.js', 'js/vendor/responsiveslides.min.js', 'bower_components/owl-carousel/owl-carousel/owl.carousel.js','bower_components/lightbox/js/lightbox.js','js/script.js'],
         dest: 'js/built.js',
       },
     },
