@@ -1,7 +1,7 @@
 {
   "name": "OYEPng",
   "version": "1.0.0",
-  "description": "Ostrich-Dev Template",
+  "description": "Omotola's Youth Empowermenet Programme Website",
   "main": "Gruntfile.js",
   "dependencies": {
     "grunt": "^0.4.5",
@@ -11,11 +11,20 @@
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-uglify": "^0.7.0",
-    "grunt-ftp-deploy": "^0.1.9"
+    "grunt-ftp-deploy": "^0.1.9",
+    "grunt-ftpush": "^0.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bl4ckdu5t/oyep"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joseph Rex",
-  "license": "GPL"
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/bl4ckdu5t/oyep/issues"
+  },
+  "homepage": "http://oyepng.org"
 }
